@@ -1,0 +1,39 @@
+// Дана строка (получение через обычный текстовый файл!!!)
+
+// "фамилия":"Иванов","оценка":"5","предмет":"Математика"
+// "фамилия":"Петрова","оценка":"4","предмет":"Информатика"
+
+// Написать метод(ы), который распарсит строку и, используя StringBuilder, создаст строки вида:
+// Студент [фамилия] получил [оценка] по предмету [предмет].
+
+// Пример вывода:
+// Студент Иванов получил 5 по предмету Математика.
+// Студент Петрова получил 4 по предмету Информатика.
+
+
+package h22HomeWork;
+// import java.io.File;
+import java.io.FileReader;
+import java.io.BufferedReader;
+public class task2 {
+    public static void main(String[] args) throws Exception {
+
+        String path = "task2.txt";
+        String[] gradeTable;
+        StringBuilder sb = new StringBuilder();
+
+        try (BufferedReader reader = new BufferedReader(new FileReader(path))){
+            String line;        
+           while ((line = reader.readLine())!= null){
+                gradeTable = line.replace("\"", "").split(":|,");
+                sb.append("Студент ").append(gradeTable[1]).append(" получил ").append(gradeTable[3]).append(" по предмету ").append(gradeTable[5]).append("\n");
+           }
+           System.out.println(sb);
+            
+        }
+        catch (Exception e){
+            System.out.println("Что-то пошло не так");
+        }
+    }
+    
+}
