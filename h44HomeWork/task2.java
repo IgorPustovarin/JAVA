@@ -5,10 +5,10 @@
 
 package h44HomeWork;
 
-import java.util.ArrayDeque;
-import java.util.Deque;
+// import java.util.ArrayDeque;
+// import java.util.Deque;
 import java.util.LinkedList;
-import java.util.Queue;
+// import java.util.Queue;
 
 public class task2 {
     // public static void main(String[] args) {
@@ -28,7 +28,8 @@ public class task2 {
         // }
         // item = deque.pollFirst();
         // System.out.println(item); 
-        // System.out.println(deque);
+        // System.out.println(deque);................................Вот до сюда сам решал, затык возник в фукцией first(), 
+        // ...............................Затем увидел в Гугле решение которое ниже и запустался, чего нужно было делать. Никита, помогите разобрать это задание
         public static void main(String[] args) {
             LinkedList<Integer> ll = new LinkedList<>();
             for (int i = 0; i < 5; i++) {
