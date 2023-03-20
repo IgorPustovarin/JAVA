@@ -9,60 +9,81 @@ import java.util.Scanner;
 public class task3 {
     public static void main(String[] args) {
         Scanner iscan = new Scanner(System.in);
-        LinkedList<String> ll = new LinkedList<>();
-        while(true){
-            String n = iscan.nextLine();
+        LinkedList<String> ll = new LinkedList<>();        
+        int i = 0;
+        int result = 0;
+        String n = iscan.next();
+        System.out.println("Введи первое число ");                
+        n = iscan.next();                
+        ll.add(n);                
+        Integer num1 = Integer.parseInt(ll.get(i));                
+        i++;        
+        while(true){            
+            System.out.println("Начнем1");           
+            System.out.println("Если нужно остановить программу Stop если нет, если нужно отменить последнее действие введи clear, введи любое число и нажми Enter ");
+            n = iscan.next();
             if (n.equals("stop")){
                 break;
             }
-            System.out.println("Введи первое число ");
-            int num1 = number1.nextInt();
-            System.out.println("Введите знак ");
-            char c = number1.next().charAt(0);
-            System.out.println("Введите второе число ");
-            int num2 = number1.nextInt();
-            number1.close();
-            System.out.println("Выполним выражение " + num1 + " " + c + " " + num2 + " = " );
-            if (c == '+'){
-                System.out.println(num1 + " + " + num2 + " = " + (num1 + num2));
+            else if(n.equals("clear")){                                
+                for (int j = 0; j < 3; j++) {
+                    System.out.println(ll.get(i-1));
+                    ll.remove(i-1);                                
+                    System.out.println(ll);    
+                    i--;
+                }
+            System.out.println("Теперь результат равен " + ll.get(i-1));
+            num1 = Integer.parseInt(ll.get(i-1));
+                            
             }
-            else if (c == '-'){
-                System.out.println(num1 + " - " + num2 + " = " + (num1 - num2));
-            }
-            else if (c == '*'){
-                System.out.println(num1 + " * " + num2 + " = " + (num1 * num2));
-            }
-            else if (c == '/'){
-                System.out.println(num1 + " / " + num2 + " = " + (num1 / num2));
+            else{
+                System.out.println(ll);
+                              
+                System.out.println("Введите знак ");
+                n = iscan.next();
+                ll.add(n);
+                String c = ll.get(i);                
+                i++;                
+                System.out.println("Введите второе число ");
+                n = iscan.next();
+                ll.add(n);              
+                Integer num2 = Integer.parseInt(ll.get(i));
+                i++;                
+                
+                System.out.println("Выполним выражение " + num1 + " " + c + " " + num2 + " = " );
+                if (c.contains("+")){
+                    result = num1 + num2;
+                    String result1 = Integer.toString(result);
+                    ll.add(result1);
+                    System.out.println(num1 + " + " + num2 + " = " + result);                    
+                    i++;
+                }
+                else if (c.contains("-")){
+                    result = num1 - num2;
+                    String result1 = Integer.toString(result);
+                    ll.add(result1);
+                    System.out.println(num1 + " - " + num2 + " = " + result);                    
+                    i++;
+                }
+                else if (c.contains("*")){
+                    result = num1 * num2;
+                    String result1 = Integer.toString(result);
+                    ll.add(result1);
+                    System.out.println(num1 + " * " + num2 + " = " + result);                    
+                    i++;
+                }
+                else if (c.contains("/")){
+                    result = num1 / num2;
+                    String result1 = Integer.toString(result);
+                    ll.add(result1);
+                    System.out.println(num1 + " / " + num2 + " = " + result);                    
+                    i++;
+                }
+                num1 = result;
             }
         }
+        iscan.close();
+        }
+
+   
     }
-    
-}
-// public static void main(String[] args) {
-    //         Scanner iscan = new Scanner(System.in);
-    //         LinkedList<String> ll = new LinkedList<>();
-    //         // ll.add("noting");
-    //         while(true){
-    //             String n = iscan.nextLine();
-    //             if(n.equals("stop")){
-    //                 break;
-    //             }
-    //             else{
-    //                 if(n.contains("print~")){                
-    //                     ArrayList<String> str = new ArrayList<>(Arrays.asList(n.split("~")));
-    //                     int a=Integer.parseInt(str.get(1));
-    //                     System.out.println(ll.get(a));
-    //                     ll.remove(a);
-    //                 }
-    //                 else{
-    //                     ll.add(n);
-    //                 }
-    //                 System.out.println(ll);
-                    
-    //             }
-    //         }
-    //         iscan.close();
-    //     }
-        
-    // }
